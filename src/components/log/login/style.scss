@@ -1,0 +1,146 @@
+// variables
+$border-radius: 20px;
+$fields-color: #bfbebf;
+$fields-color-dark: #a4a4a4;
+$border-color : #dadada;
+
+@mixin fields_btns_style($bgColor ,$color){
+  color: $color;
+  background-color: $bgColor;
+  display: flex;
+  min-height: 50px;
+  max-height: 50px;
+  min-width: 100%;
+  border-radius: 100px;
+  margin-bottom: 15px;
+}
+
+.login-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  .left-content {
+    flex-basis: 50%;
+    border-radius: $border-radius;
+    background-color: #f3f3f3;
+    padding: 40px 80px;
+    h1 {
+      color: #1a1a1b;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 48px;
+    }
+    p {
+      margin-top: 15px;
+      color: #555555;
+    }
+    // THE FORM
+    form {
+      margin-top: 15px;
+      .field {
+        @include fields_btns_style(white ,#333);
+        font-weight: 500;
+        align-items: center;
+        border: 1px solid $border-color;
+        input {
+          all: unset;
+          width: 86%;
+          height: 25px;
+          padding: 5px 5px 10px 0;
+          font-size: 18px;
+          &::placeholder {
+            color: $fields-color;
+          }
+        }
+        .password-field {
+          position: relative;
+        }
+        .divider {
+          width: 2px;
+          height: 27px;
+          margin: 0 7px;
+          border-radius: 4px;
+          background-color: #e9e9e9;
+        }
+        .i {
+          margin-left: 10px;
+          color: $fields-color;
+        }
+        .eye {
+          all: unset;
+          margin-right: 15px;
+          color: $fields-color-dark;
+          cursor: pointer;
+        }
+      }
+    }
+    button.submit {
+      all: unset;
+      @include fields_btns_style(#56afd3 ,white);
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 400;
+      margin-block: 15px;
+      &:hover {
+        cursor: pointer;
+        background-color: #4f9dbc;
+      }
+    }
+    .separator {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: #333;
+      font-size: 14px;
+      &::before,
+      &::after {
+        content: "";
+        flex: 1;
+        border-bottom: 1px solid #ccc;
+        margin: 0 10px;
+      }
+    }
+    .connect-google {
+      .connect {
+        @include fields_btns_style(white ,#333);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: 1px solid $border-color;
+        margin-top: 15px;
+        gap: 12px;
+        cursor: pointer;
+        &:hover{
+          border-color: darken($color: $border-color, $amount: 20%);
+        }
+        span{
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+    }
+    .sign-up{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      span{
+        color: #4f9dbc;
+        font-weight: 500;
+        cursor: pointer;
+      }
+    }
+  }
+  .right-content {
+    flex-basis: 50%;
+    border-radius: $border-radius;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $border-radius;
+    }
+  }
+}
